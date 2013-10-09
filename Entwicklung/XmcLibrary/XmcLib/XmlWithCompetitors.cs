@@ -19,17 +19,16 @@ namespace XmcLib
     {
         private static ObservableCollection<Competitor> competitors = 
             new ObservableCollection<Competitor>();
-        ///===============================================================
-        /// <summary>   Loads the competitors from xml. </summary>
-        ///
-        /// <remarks> 
-        /// Betrifft die zurzeit benutzte fixe Jahreszahl '2012':
-        ///     Falls das Programm  ausgeführt wird erhalten die
-        ///     Dateien 'innen' 2012 und im Dateinamen das gerade lfd Jahr
-        /// </remarks>
-        ///
-        /// <returns>   true if it succeeds, false if it fails. </returns>
-        ///---------------------------------------------------------------
+
+        /**
+         * <summary>Loads the competitors from xml.</summary>
+         *
+         * <remarks>Beate, 09.10.2013.</remarks>
+         *
+         * <param name="xmldatei">The xmldatei.</param>
+         *
+         * <returns>The competitors from xml.</returns>
+         */
 
         public ObservableCollection<Competitor>
             LoadCompetitorsFromXml(string xmldatei)
@@ -45,79 +44,16 @@ namespace XmcLib
             catch (FileNotFoundException fnfEx)
             {
                 // Erstellen neue leere "Competitor.xml" Datei
-                MessageBox.Show(fnfEx.Message);
-
                 StringBuilder xmlStr = new StringBuilder();
-                // string jahr = (DateTime.Now.Year).ToString();
-                string jahr = "2012";
-
-                string NoNameCompetitor = @"<Competitor>
-<Image></Image>
-		<HasImage>False</HasImage>
-		<Nachname>nn</Nachname>
-		<Vorname>nn</Vorname>
-		<Gender>nn</Gender>
-		<Jahrgang>0</Jahrgang>
-		<Alter>0</Alter>
-		<AK>unbekannt</AK>
-		<Gewicht>0</Gewicht>
-		<GK>unbekannt</GK>
-		<WiFak>0</WiFak>
-		<Kb>False</Kb>
-		<Bd>False</Bd>
-		<Kh>False</Kh>
-		<KbV1>0</KbV1>
-		<OkKbV1>False</OkKbV1>
-		<KbV2>0</KbV2>
-		<OkKbV2>False</OkKbV2>
-		<KbV3>0</KbV3>
-		<OkKbV3>False</OkKbV3>
-		<KbE>0</KbE>
-		<OkKbE>False</OkKbE>
-		<KbEP>0</KbEP>
-		<BdV1>0</BdV1>
-		<OkBdV1>False</OkBdV1>
-		<BdV2>0</BdV2>
-		<OkBdV2>False</OkBdV2>
-		<BdV3>0</BdV3>
-		<OkBdV3>False</OkBdV3>
-		<BdE>0</BdE>
-		<OkBdE>False</OkBdE>
-		<BdEP>0</BdEP>
-		<KhV1>0</KhV1>
-		<OkKhV1>False</OkKhV1>
-		<KhV2>0</KhV2>
-		<OkKhV2>False</OkKhV2>
-		<KhV3>0</KhV3>
-		<OkKhV3>False</OkKhV3>
-		<KhE>0</KhE>
-		<OkKhE>False</OkKhE>
-		<KhEP>0</KhEP>
-		<Platz_E_Kb></Platz_E_Kb>
-		<Platz_E_Bd></Platz_E_Bd>
-		<Platz_E_Kh></Platz_E_Kh>
-		<Platz_Zk_BdKh></Platz_Zk_BdKh>
-		<Platz_Zk_KbKh></Platz_Zk_KbKh>
-		<Platz_Zk_KbBd></Platz_Zk_KbBd>
-		<Platz_Dk></Platz_Dk>
-		<Error></Error>
-</Competitor>
-";
-
+                string jahr = (DateTime.Now.Year).ToString();
+             
                 xmlStr.Append("<Competitors Jahr=\"");
                 xmlStr.Append(jahr);
                 xmlStr.Append("\">\n");
-                xmlStr.Append(NoNameCompetitor);
                 xmlStr.Append("</Competitors>\n");
-                string fileNameInWork = zulesendedatei;
 
-                using (StreamWriter wXml = File.CreateText(fileNameInWork))
-                {
-                    string xxx = xmlStr.ToString();
-                    wXml.WriteLine(xxx);
 
-                }
-                xml = File.ReadAllText(zulesendedatei);
+                xml = xmlStr.ToString();
             }
 
             competitors.Clear();

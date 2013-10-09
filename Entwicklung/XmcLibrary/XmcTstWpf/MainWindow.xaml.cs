@@ -29,7 +29,7 @@ namespace XmcLibTstWpf
         public MainWindow()
         {
             InitializeComponent();
-            OpenFile();
+            string file = OpenFile();
             Testausgaben();
 
 
@@ -41,9 +41,11 @@ namespace XmcLibTstWpf
          * <remarks>Beate, 09.10.2013.</remarks>
          */
 
-        private static void OpenFile()
+        private static string OpenFile()
         {
             string[] allfiles = { };
+            string filename = string.Empty;
+            string path = string.Empty;
             List<string> filenameOnly = new List<string>();
             OpenFileDialog inputDlg = new OpenFileDialog();
             inputDlg.Multiselect = true;
@@ -55,11 +57,21 @@ namespace XmcLibTstWpf
                 allfiles = inputDlg.FileNames;
                 foreach (string s in allfiles)
                 {
-                    string filename = System.IO.Path.GetFileName(s);
+                    filename = System.IO.Path.GetFileName(s);
+                    path = System.IO.Path.GetDirectoryName(s);
                     filenameOnly.Add(filename);
 
                 }
-                MessageBox.Show("Eingabe von  "+allfiles[0].ToString());
+                
+                MessageBox.Show("Eingabe: " + filename,
+                    "Xmascup Dateiauswahl");
+                return allfiles[0].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Keine Datei ausgewählt !!",
+                     "Xmascup Dateiauswahl");
+                return "keine Auswahl getroffen";
             }
         }
 
