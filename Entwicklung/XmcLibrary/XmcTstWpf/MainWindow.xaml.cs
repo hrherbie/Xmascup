@@ -35,6 +35,12 @@ namespace XmcLibTstWpf
 
         }
 
+        /**
+         * <summary>Zeigt OpenFileDialog an</summary>
+         *
+         * <remarks>Beate, 09.10.2013.</remarks>
+         */
+
         private static void OpenFile()
         {
             string[] allfiles = { };
