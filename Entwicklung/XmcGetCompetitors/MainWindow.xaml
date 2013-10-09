@@ -1,0 +1,23 @@
+﻿<Window x:Class="XmcGetCompetitors.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        ResizeMode="CanResizeWithGrip"
+        Title="Xmascup Erfassen Teilnehmer" Height="350" Width="300">
+    <Grid>
+        <Grid>
+            <StackPanel Margin="5" Button.Click="ButtonClick">
+
+               
+                <Button>Laden oder Speichern der Dateien</Button>
+               
+
+                <Button>ModernWindow</Button>
+               
+
+
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>
