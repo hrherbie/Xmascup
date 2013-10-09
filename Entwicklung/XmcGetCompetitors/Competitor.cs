@@ -10,6 +10,12 @@ using System.Xml.Linq;
 
 namespace XmcGetCompetitors
 {
+    /**
+     * <summary>Competitor.</summary>
+     *
+     * <remarks>Beate, 09.10.2013.</remarks>
+     */
+
     public class Competitor : IDataErrorInfo, INotifyPropertyChanged, ICloneable
     {
 
