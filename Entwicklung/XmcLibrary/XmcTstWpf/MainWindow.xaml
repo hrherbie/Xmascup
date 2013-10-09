@@ -4,6 +4,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <ScrollViewer>
+            <!-- Zur Anzeige von Testergebnissen -->
         <TextBox Name="tbHrtext"
                     HorizontalAlignment="Left" Height="269" Margin="36,23,0,0" 
                  TextWrapping="Wrap" 
